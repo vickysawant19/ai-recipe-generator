@@ -70,16 +70,6 @@ const Recipe = ({ recipe }) => {
                 >
                   {list?.quantity}
                 </p>
-                <p
-                  style={{
-                    margin: "5px 0",
-                    fontSize: "16px",
-                    color: "#555",
-                    marginLeft: "5px",
-                  }}
-                >
-                  {list?.unit}
-                </p>
               </li>
             ))}
           </ul>

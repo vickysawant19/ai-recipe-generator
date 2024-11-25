@@ -43,7 +43,7 @@ export default async function fetchRecipe(ingredients) {
           role: "user",
           content: `Generate more than one recipe using the ingredients: ${ingredients.join(
             ","
-          )}. Incorporate the provided ingredients, but not all need to be used. Create a stringified JSON Array of objects with the following fields: name (recipe title), ingredients (an array of objects with name, quantity, and unit), and procedure (a numbered array of step-by-step instructions). Ensure the recipe is clear, realistic, and cohesive.`,
+          )}. Incorporate the provided ingredients, but not all need to be used. Create a stringified JSON Array of objects with the following fields: name (recipe title), ingredients (an array of objects with name, quantity with unit), and procedure (a numbered array of step-by-step instructions). Ensure the recipe is clear, realistic, and cohesive.`,
         },
       ],
       max_tokens: 4096,

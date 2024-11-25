@@ -69,8 +69,8 @@ const Home = () => {
               </button>
             </div>
           ))}
-          {error && <div style={{ color: "red" }}>{error}</div>}
         </div>
+        {error && <div style={{ color: "red" }}>__ {error} __</div>}
         <button
           onClick={handleGenerate}
           disabled={ingredient.length === 0}
