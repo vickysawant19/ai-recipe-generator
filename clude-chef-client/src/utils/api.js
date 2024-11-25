@@ -1,6 +1,7 @@
 import { HfInference } from "@huggingface/inference";
+import { config } from "../config/config";
 
-const client = new HfInference("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");
+const client = new HfInference(config.api_key);
 
 // Function to extract and parse JSON from the response
 function extractAndParseJSON(rawResponse) {

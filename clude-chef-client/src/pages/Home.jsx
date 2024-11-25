@@ -11,11 +11,6 @@ const Home = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
 
-  const fetchData = async () => {
-    const data = await fetchRecipe(ingredient);
-    return data;
-  };
-
   const handleAddIngredent = (e) => {
     e.preventDefault();
     input !== "" ? setIngredient([...ingredient, input]) : "";
@@ -25,10 +20,10 @@ const Home = () => {
     try {
       setError("");
       setIsLoading(true);
-      console.log("generating ");
+      console.log("Generating...");
       if (ingredient.length > 0) {
-        const res = await fetchData(ingredient);
-        setRecipes(res);
+        const data = await fetchRecipe(ingredient);
+        setRecipes(data);
       }
     } catch (error) {
       setError("Something went wrong! Try Again...");
@@ -91,10 +86,9 @@ const Home = () => {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            border: "1px solid red",
           }}
         >
-          Loading...
+          Generating...
         </div>
       ) : (
         recipes?.length > 0 && (
