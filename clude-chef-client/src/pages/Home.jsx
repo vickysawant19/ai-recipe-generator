@@ -26,6 +26,7 @@ const Home = () => {
       if (ingredient.length > 0) {
         const data = await fetchRecipe(ingredient);
         setRecipes(data);
+        console.log("res", data);
       }
     } catch (error) {
       setError("Something went wrong! Try Again...");

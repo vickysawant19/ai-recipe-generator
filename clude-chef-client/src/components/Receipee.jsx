@@ -22,7 +22,7 @@ const Recipe = ({ recipe }) => {
           marginBottom: "15px",
         }}
       >
-        {recipe.name}
+        {recipe?.name}
       </h3>
 
       <div>
@@ -68,7 +68,10 @@ const Recipe = ({ recipe }) => {
                     marginLeft: "10px",
                   }}
                 >
-                  {list?.quantity}
+                  {typeof list?.quantity === "string" ||
+                  typeof list?.quantity === "number"
+                    ? list?.quantity
+                    : ""}
                 </p>
               </li>
             ))}
