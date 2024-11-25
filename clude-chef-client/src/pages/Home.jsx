@@ -14,6 +14,7 @@ const Home = () => {
   const handleAddIngredent = (e) => {
     e.preventDefault();
     input !== "" ? setIngredient([...ingredient, input]) : "";
+    setInput("");
   };
 
   const handleGenerate = async () => {
