@@ -1,5 +1,6 @@
 import { HfInference } from "@huggingface/inference";
 import { config } from "../config/config";
+import { jsonrepair } from "jsonrepair";
 
 const client = new HfInference(config.api_key);
 
@@ -14,8 +15,9 @@ function extractAndParseJSON(rawResponse) {
     if (jsonMatch && jsonMatch[0]) {
       const jsonString = jsonMatch[0];
 
+      const repairedJson = jsonrepair(jsonString);
       // Parse the isolated JSON string
-      const parsedData = JSON.parse(jsonString);
+      const parsedData = JSON.parse(repairedJson);
 
       // Validate the parsed data to ensure it's an array
       if (Array.isArray(parsedData)) {
@@ -65,6 +67,6 @@ export default async function fetchRecipe(ingredients) {
     return recipeData;
   } catch (error) {
     console.error("Error in fetching recipe:", error.message);
-    return null;
+    return error;
   }
 }
