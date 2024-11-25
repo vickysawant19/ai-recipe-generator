@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
-import Recipe from "../components/Recipe.Jsx";
+
 import About from "../components/About";
 import HowItWorks from "../components/HowItWorks";
 import fetchRecipe from "../utils/api";
+import Recipe from "../components/Receipee";
 
 const Home = () => {
   const [input, setInput] = useState("");
